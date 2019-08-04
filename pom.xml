@@ -6,7 +6,7 @@
 
     <groupId>net.brcdev</groupId>
     <artifactId>shopgui-api</artifactId>
-    <version>0.0.1</version>
+    <version>${env.BUILD_VERSION}</version>
 
     <build>
         <sourceDirectory>src/main/java/</sourceDirectory>

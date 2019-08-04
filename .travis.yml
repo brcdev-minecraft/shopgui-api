@@ -1,9 +1,11 @@
 language: java
 script: mvn clean package
+env:
+  - "BUILD_VERSION=$TRAVIS_COMMIT"
 deploy:
   provider: releases
   api_key: "$GITHUB_TOKEN"
-  file: "$TRAVIS_BUILD_DIR/shopgui-api-$TRAVIS_TAG.jar"
+  file: "$TRAVIS_BUILD_DIR/target/shopgui-api-$BUILD_VERSION.jar"
   skip_cleanup: true
   on:
     tags: true
