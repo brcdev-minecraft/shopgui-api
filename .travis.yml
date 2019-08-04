@@ -3,7 +3,7 @@ script: mvn clean package
 deploy:
   provider: releases
   api_key: "$GITHUB_TOKEN"
-  file: "/home/travis/build/brcdev-minecraft/shopgui-api/target/shopgui-api-*.jar"
+  file: "$TRAVIS_BUILD_DIR/shopgui-api-$TRAVIS_TAG.jar"
   skip_cleanup: true
   on:
     tags: true
