@@ -1,2 +1,9 @@
 language: java
 script: mvn clean package
+deploy:
+  provider: releases
+  api_key: "$GITHUB_TOKEN"
+  file: "/home/travis/build/brcdev-minecraft/shopgui-api/target/shopgui-api-*.jar"
+  skip_cleanup: true
+  on:
+    tags: true
