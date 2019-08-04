@@ -1,0 +1,10 @@
+.classpath
+.project
+.settings
+.idea
+target
+bin
+build
+dist
+*.eml
+*.iml
