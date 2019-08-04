@@ -1,10 +1,10 @@
 package net.brcdev.shopgui;
 
-import org.bukkit.plugin.java.JavaPlugin;
+import net.brcdev.shopgui.player.PlayerManager;
+import net.brcdev.shopgui.shop.ShopManager;
 
-public class ShopGuiPlugin extends JavaPlugin {
+public interface ShopGuiPlugin {
+  PlayerManager getPlayerManager();
 
-  public static ShopGuiPlugin getInstance() {
-    return null;
-  }
+  ShopManager getShopManager();
 }
