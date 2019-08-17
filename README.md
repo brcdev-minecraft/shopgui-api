@@ -8,7 +8,7 @@ This repository provides an open source library containing basic API for [ShopGU
 
 ## How to use
 1. Add Maven/Gradle dependency to your project (code snippets are available in the section below)
-2. Add ShopGUI+ to `depend` or `softdepend` section of `plugin.yml` in your plugin project
+2. Add `ShopGUIPlus` to `depend` or `softdepend` section of `plugin.yml` in your plugin project
 3. You can start adding desired implementation to your plugin
 
 Tips:
@@ -17,7 +17,7 @@ Tips:
 * The API is still very basic and incomplete - we're open for ideas as well as pull requests
 
 ## Version compatibility matrix
-When using this API, make sure you use valid version, corresponding to ShopGUI+'s version your plugins is going to be used with.
+When using this API, make sure you use valid version corresponding to ShopGUI+'s version your plugin is going to be used with.
 
 | ShopGUI+ version  | API version |
 | --- | --- |
