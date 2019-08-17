@@ -1,10 +1,12 @@
 package net.brcdev.shopgui;
 
+import net.brcdev.shopgui.exception.api.ExternalSpawnerProviderNameConflictException;
 import net.brcdev.shopgui.exception.player.PlayerDataNotLoadedException;
 import net.brcdev.shopgui.player.PlayerData;
 import net.brcdev.shopgui.shop.Shop;
 import net.brcdev.shopgui.shop.ShopItem;
 import net.brcdev.shopgui.shop.WrappedShopItem;
+import net.brcdev.shopgui.spawner.external.provider.ExternalSpawnerProvider;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -13,7 +15,7 @@ public class ShopGuiPlusApi {
   private static ShopGuiPlugin shopGuiPlugin;
 
   /**
-   * Gets the shop with specified shop ID
+   * Gets shop with specified shop ID
    *
    * @param shopId ID of the shop
    * @return requested shop if exists, null otherwise
@@ -23,7 +25,7 @@ public class ShopGuiPlusApi {
   }
 
   /**
-   * Opens the specified shop to the specified player
+   * Opens the specified shop to rhe specified player
    *
    * @param player Player
    * @param shopId Shop ID
@@ -113,6 +115,28 @@ public class ShopGuiPlusApi {
         .getShopItem()
         .getSellPriceForAmount(
             wrappedShopItem.getShop(), player, playerData, itemStack.getAmount());
+  }
+
+  /**
+   * Registers a custom spawner provider
+   *
+   * @param spawnerProvider Implementation of custom spawner provider
+   */
+  public static void registerSpawnerProvider(ExternalSpawnerProvider spawnerProvider) throws ExternalSpawnerProviderNameConflictException {
+    shopGuiPlugin.getSpawnerManager().registerExternalSpawnerProvider(spawnerProvider);
+  }
+
+  /**
+   * Returns the instance of ShopGUI+'s main class
+   *
+   * @return ShopGUI+ main class instance
+   */
+  public static ShopGuiPlugin getPlugin() {
+    return shopGuiPlugin;
+  }
+
+  static void setPlugin(ShopGuiPlugin instance) {
+    shopGuiPlugin = instance;
   }
 
   private static WrappedShopItem getWrappedShopItem(Player player, ItemStack itemStack)
