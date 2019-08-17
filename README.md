@@ -6,6 +6,14 @@
 
 This repository provides an open source library containing basic API for [ShopGUI+](https://www.spigotmc.org/resources/shopgui-1-7-1-14.6515/) spigot plugin.
 
+## Version compatibility matrix
+When using this API, make sure you use valid version, corresponding to ShopGUI+'s version your plugins is going to be used with.
+
+| ShopGUI+ version  | API version |
+| --- | --- |
+| 1.20.0 | 1.0.0  
+
+
 ## Dependencies
 _Note: It's not recommended to use the `latest` version tag. Use fixed version from [Releases](../releases) instead._ 
 ### Maven
