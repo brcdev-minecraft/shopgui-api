@@ -6,6 +6,16 @@
 
 This repository provides an open source library containing basic API for [ShopGUI+](https://www.spigotmc.org/resources/shopgui-1-7-1-14.6515/) spigot plugin.
 
+## How to use
+1. Add Maven/Gradle dependency to your project (code snippets are available in the section below)
+2. Add ShopGUI+ to `depend` or `softdepend` section of `plugin.yml` in your plugin project
+3. You can start adding desired implementation to your plugin
+
+Tips:
+* Registering of spawner provider must be performed at server startup (inside the `onEnable` method of your plugin)
+* You can get ShopGUI+'s main class with `ShopGuiPlusapi#getPlugin` static method
+* The API is still very basic and incomplete - we're open for ideas as well as pull requests
+
 ## Version compatibility matrix
 When using this API, make sure you use valid version, corresponding to ShopGUI+'s version your plugins is going to be used with.
 
@@ -47,3 +57,12 @@ _Note: It's not recommended to use the `latest` version tag. Use fixed version f
 	        implementation 'com.github.brcdev-minecraft:shopgui-api:latest'
 	}
 ```
+
+## Example implementations
+There is an official example of implementing a spawners provider available at our GitHub:
+* [MySpawners - example of spawners plugin hooking into ShopGUI+](https://github.com/brcdev-minecraft/shopgui-api-example-spawner-provider)
+
+More example plugins showing API possibilities are coming soon.
+
+## Contact
+You can contact the maintainers at our Discord server - http://discord.brcdev.net/
