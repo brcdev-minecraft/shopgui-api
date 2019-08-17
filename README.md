@@ -13,7 +13,7 @@ This repository provides an open source library containing basic API for [ShopGU
 
 Tips:
 * Registering of spawner provider must be performed at server startup (inside the `onEnable` method of your plugin)
-* You can get ShopGUI+'s main class with `ShopGuiPlusapi#getPlugin` static method
+* You can get ShopGUI+'s main class with `ShopGuiPlusApi#getPlugin` static method
 * The API is still very basic and incomplete - we're open for ideas as well as pull requests
 
 ## Version compatibility matrix
