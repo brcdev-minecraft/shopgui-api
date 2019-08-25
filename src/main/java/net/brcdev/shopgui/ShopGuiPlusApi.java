@@ -25,7 +25,7 @@ public class ShopGuiPlusApi {
   }
 
   /**
-   * Opens the specified shop to rhe specified player
+   * Opens the specified shop to the specified player
    *
    * @param player Player
    * @param shopId Shop ID
