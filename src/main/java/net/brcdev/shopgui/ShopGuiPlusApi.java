@@ -3,6 +3,7 @@ package net.brcdev.shopgui;
 import net.brcdev.shopgui.exception.api.ExternalSpawnerProviderNameConflictException;
 import net.brcdev.shopgui.exception.player.PlayerDataNotLoadedException;
 import net.brcdev.shopgui.player.PlayerData;
+import net.brcdev.shopgui.provider.economy.EconomyProvider;
 import net.brcdev.shopgui.shop.Shop;
 import net.brcdev.shopgui.shop.ShopItem;
 import net.brcdev.shopgui.shop.WrappedShopItem;
@@ -131,6 +132,15 @@ public class ShopGuiPlusApi {
   public static void registerSpawnerProvider(ExternalSpawnerProvider spawnerProvider)
     throws ExternalSpawnerProviderNameConflictException {
     shopGuiPlugin.getSpawnerManager().registerExternalSpawnerProvider(spawnerProvider);
+  }
+
+  /**
+   * Registers a custom economy provider
+   *
+   * @param economyProvider Implementation of custom economy provider
+   */
+  public static void registerEconomyProvider(EconomyProvider economyProvider) {
+    shopGuiPlugin.getEconomyManager().registerCustomEconomyProvider(economyProvider);
   }
 
   /**

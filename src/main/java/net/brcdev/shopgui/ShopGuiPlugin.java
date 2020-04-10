@@ -2,6 +2,7 @@ package net.brcdev.shopgui;
 
 import net.brcdev.shopgui.core.BConfig;
 import net.brcdev.shopgui.database.DataManager;
+import net.brcdev.shopgui.economy.EconomyManager;
 import net.brcdev.shopgui.modifier.PriceModifierManager;
 import net.brcdev.shopgui.player.PlayerManager;
 import net.brcdev.shopgui.shop.ShopManager;
@@ -18,6 +19,8 @@ public interface ShopGuiPlugin {
   BConfig getConfigShops();
 
   DataManager getDataManager();
+
+  EconomyManager getEconomyManager();
 
   PlayerManager getPlayerManager();
 
