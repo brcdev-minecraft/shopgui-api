@@ -11,6 +11,8 @@ public interface ShopManager {
 
   WrappedShopItem findShopItemByItemStack(Player player, PlayerData playerData, ItemStack itemStack, boolean excludeFreeItems);
 
+  WrappedShopItem findShopItemByItemStack(ItemStack itemStack, boolean excludeFreeItems);
+
   Shop getShopById(String shopId);
 
   enum ShopAction {

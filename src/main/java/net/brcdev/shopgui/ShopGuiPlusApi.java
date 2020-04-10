@@ -69,6 +69,19 @@ public class ShopGuiPlusApi {
   }
 
   /**
+   * Gets the {@link Shop shop} where an item stack belongs to. It searches all shops, including these the
+   * player may not have access to. It's safer and recommended to use
+   * {@link #getItemStackShop(Player player, ItemStack itemStack)} instead.
+   *
+   * @param itemStack Item stack to search for
+   * @return shop if found, null otherwise
+   */
+  public static Shop getItemStackShop(ItemStack itemStack) {
+    WrappedShopItem wrappedShopItem = getWrappedShopItem(itemStack);
+    return wrappedShopItem != null ? wrappedShopItem.getShop() : null;
+  }
+
+  /**
    * Gets a {@link ShopItem shop item} of an item stack
    *
    * @param player    Player attempting to get the shop item (eg. won't return shop items in shops the
@@ -79,6 +92,19 @@ public class ShopGuiPlusApi {
    */
   public static ShopItem getItemStackShopItem(Player player, ItemStack itemStack) throws PlayerDataNotLoadedException {
     WrappedShopItem wrappedShopItem = getWrappedShopItem(player, itemStack);
+    return wrappedShopItem != null ? wrappedShopItem.getShopItem() : null;
+  }
+
+  /**
+   * Gets a {@link ShopItem shop item} of an item stack. Warning: This ignores price modifiers a player could
+   * potentially have. It also searches all shops, including these the player may not have access to. It's safer and
+   * recommended to use {@link #getItemStackShopItem(Player, ItemStack)} instead.
+   *
+   * @param itemStack Item stack to search for
+   * @return shop item if found, null otherwise
+   */
+  public static ShopItem getItemStackShopItem(ItemStack itemStack) {
+    WrappedShopItem wrappedShopItem = getWrappedShopItem(itemStack);
     return wrappedShopItem != null ? wrappedShopItem.getShopItem() : null;
   }
 
@@ -104,6 +130,24 @@ public class ShopGuiPlusApi {
   }
 
   /**
+   * Gets buy price of an item. Warning: This ignores price modifiers a player could potentially have. It also
+   * searches all shops, including these the player may not have access to. It's safer and
+   * recommended to use {@link #getItemStackPriceBuy(Player, ItemStack)} instead.
+   *
+   * @param itemStack Item stack to check
+   * @return buy price for the specified amount if found, -1.0 otherwise
+   */
+  public static double getItemStackPriceBuy(ItemStack itemStack) {
+    WrappedShopItem wrappedShopItem = getWrappedShopItem(itemStack);
+
+    if (wrappedShopItem == null) {
+      return -1.0;
+    }
+
+    return wrappedShopItem.getShopItem().getBuyPriceForAmount(itemStack.getAmount());
+  }
+
+  /**
    * Gets price of an item
    *
    * @param player    Player attempting to get the sell the item (eg. won't check prices in shops the
@@ -122,6 +166,24 @@ public class ShopGuiPlusApi {
     PlayerData playerData = shopGuiPlugin.getPlayerManager().getPlayerData(player);
     return wrappedShopItem.getShopItem()
       .getSellPriceForAmount(wrappedShopItem.getShop(), player, playerData, itemStack.getAmount());
+  }
+
+  /**
+   * Gets price of an item. Warning: This ignores price modifiers a player could potentially have. It also searches
+   * all shops, including these the player may not have access to. It's safer and recommended to use
+   * {@link #getItemStackPriceSell(Player, ItemStack)} instead.
+   *
+   * @param itemStack Item stack to check
+   * @return sell price for the specified amount if found, -1.0 otherwise
+   */
+  public static double getItemStackPriceSell(ItemStack itemStack) {
+    WrappedShopItem wrappedShopItem = getWrappedShopItem(itemStack);
+
+    if (wrappedShopItem == null) {
+      return -1.0;
+    }
+
+    return wrappedShopItem.getShopItem().getSellPriceForAmount(itemStack.getAmount());
   }
 
   /**
@@ -164,5 +226,9 @@ public class ShopGuiPlusApi {
 
     PlayerData playerData = shopGuiPlugin.getPlayerManager().getPlayerData(player);
     return shopGuiPlugin.getShopManager().findShopItemByItemStack(player, playerData, itemStack, false);
+  }
+
+  private static WrappedShopItem getWrappedShopItem(ItemStack itemStack) {
+    return shopGuiPlugin.getShopManager().findShopItemByItemStack(itemStack, false);
   }
 }
