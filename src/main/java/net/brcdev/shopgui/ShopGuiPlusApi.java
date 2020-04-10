@@ -55,7 +55,7 @@ public class ShopGuiPlusApi {
   }
 
   /**
-   * Gets the {@link Shop shop} when an item stack belongs to
+   * Gets the {@link Shop shop} where an item stack belongs to
    *
    * @param player    Player attempting to get the shop (eg. won't return shops the player doesn't have
    *                  access to)
