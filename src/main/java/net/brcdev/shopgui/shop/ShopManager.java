@@ -25,6 +25,15 @@ public class ShopManager {
     return null;
   }
 
+  public enum ItemType {
+    ITEM,
+    PERMISSION,
+    ENCHANTMENT,
+    COMMAND,
+    SPECIAL,
+    DUMMY
+  }
+
   public enum ShopAction {
     BUY,
     SELL,
