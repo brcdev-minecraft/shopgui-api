@@ -3,12 +3,21 @@ package net.brcdev.shopgui.shop;
 import net.brcdev.shopgui.player.PlayerData;
 import org.bukkit.entity.Player;
 
-public interface ShopItem {
-  double getBuyPriceForAmount(Shop shop, Player player, PlayerData playerData, int amount);
+public class ShopItem {
 
-  double getBuyPriceForAmount(int amount);
+  public double getBuyPriceForAmount(Shop shop, Player player, PlayerData playerData, int amount) {
+    return 0;
+  }
 
-  double getSellPriceForAmount(Shop shop, Player player, PlayerData playerData, int amount);
+  public double getBuyPriceForAmount(int amount) {
+    return 0;
+  }
 
-  double getSellPriceForAmount(int amount);
+  public double getSellPriceForAmount(Shop shop, Player player, PlayerData playerData, int amount) {
+    return 0;
+  }
+
+  public double getSellPriceForAmount(int amount) {
+    return 0;
+  }
 }

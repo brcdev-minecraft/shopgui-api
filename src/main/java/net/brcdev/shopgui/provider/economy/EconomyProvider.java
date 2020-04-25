@@ -2,14 +2,14 @@ package net.brcdev.shopgui.provider.economy;
 
 import org.bukkit.entity.Player;
 
-public interface EconomyProvider {
+public abstract class EconomyProvider {
 
   /**
    * Returns user-friendly name of economy
    *
    * @return economy name
    */
-  String getName();
+  public abstract String getName();
 
   /**
    * Gets the money balance of specified player
@@ -17,7 +17,7 @@ public interface EconomyProvider {
    * @param player Player to check balance
    * @return money balance
    */
-  double getBalance(Player player);
+  public abstract double getBalance(Player player);
 
   /**
    * Adds the specified money amount to player's balance
@@ -25,7 +25,7 @@ public interface EconomyProvider {
    * @param player Player whose balance shall be modified
    * @param amount Money amount
    */
-  void deposit(Player player, double amount);
+  public abstract void deposit(Player player, double amount);
 
   /**
    * Removes the specified money amount from player's balance
@@ -33,7 +33,7 @@ public interface EconomyProvider {
    * @param player Player whose balance shall be modified
    * @param amount Money amount
    */
-  void withdraw(Player player, double amount);
+  public abstract void withdraw(Player player, double amount);
 
   /**
    * Checks whether player's balance is equal or higher than the specified money amount
@@ -42,5 +42,7 @@ public interface EconomyProvider {
    * @param amount Amount required from player
    * @return whether player has enough money
    */
-  boolean has(Player player, double amount);
+  public boolean has(Player player, double amount) {
+    return getBalance(player) >= amount;
+  }
 }

@@ -1,4 +1,4 @@
 package net.brcdev.shopgui.database;
 
-public interface DataManager {
+public class DataManager {
 }

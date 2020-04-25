@@ -2,7 +2,8 @@ package net.brcdev.shopgui.economy;
 
 import net.brcdev.shopgui.provider.economy.EconomyProvider;
 
-public interface EconomyManager {
+public class EconomyManager {
 
-  void registerCustomEconomyProvider(EconomyProvider economyProvider);
+  public void registerCustomEconomyProvider(EconomyProvider economyProvider) {
+  }
 }

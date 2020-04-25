@@ -4,18 +4,28 @@ import net.brcdev.shopgui.player.PlayerData;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public interface ShopManager {
-  void openMainMenu(final Player player);
+public class ShopManager {
 
-  void openShopMenu(Player player, String shopId, int page, boolean direct);
+  public void openMainMenu(final Player player) {
+  }
 
-  WrappedShopItem findShopItemByItemStack(Player player, PlayerData playerData, ItemStack itemStack, boolean excludeFreeItems);
+  public void openShopMenu(Player player, String shopId, int page, boolean direct) {
+  }
 
-  WrappedShopItem findShopItemByItemStack(ItemStack itemStack, boolean excludeFreeItems);
+  public WrappedShopItem findShopItemByItemStack(Player player, PlayerData playerData, ItemStack itemStack,
+                                                 boolean excludeFreeItems) {
+    return null;
+  }
 
-  Shop getShopById(String shopId);
+  public WrappedShopItem findShopItemByItemStack(ItemStack itemStack, boolean excludeFreeItems) {
+    return null;
+  }
 
-  enum ShopAction {
+  public Shop getShopById(String shopId) {
+    return null;
+  }
+
+  public enum ShopAction {
     BUY,
     SELL,
     SELL_ALL

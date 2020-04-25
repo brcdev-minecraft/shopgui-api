@@ -4,21 +4,33 @@ import org.bukkit.entity.Player;
 
 import static net.brcdev.shopgui.shop.ShopManager.ShopAction;
 
-public interface ShopTransactionResult {
+public class ShopTransactionResult {
 
-  ShopAction getShopAction();
+  public ShopAction getShopAction() {
+    return null;
+  }
 
-  ShopTransactionResultType getResult();
+  public ShopTransactionResultType getResult() {
+    return null;
+  }
 
-  ShopItem getShopItem();
+  public ShopItem getShopItem() {
+    return null;
+  }
 
-  Player getPlayer();
+  public Player getPlayer() {
+    return null;
+  }
 
-  int getAmount();
+  public int getAmount() {
+    return 0;
+  }
 
-  double getPrice();
+  public double getPrice() {
+    return 0;
+  }
 
-  enum ShopTransactionResultType {
+  public enum ShopTransactionResultType {
     SUCCESS,
     FAILURE_CANCELLED,
     FAILURE_NO_MONEY,

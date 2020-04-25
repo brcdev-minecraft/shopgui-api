@@ -1,4 +1,4 @@
 package net.brcdev.shopgui.shop;
 
-public interface Shop {
+public class Shop {
 }

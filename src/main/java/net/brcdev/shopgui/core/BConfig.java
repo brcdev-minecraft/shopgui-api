@@ -2,7 +2,9 @@ package net.brcdev.shopgui.core;
 
 import org.bukkit.configuration.file.FileConfiguration;
 
-public interface BConfig {
+public class BConfig {
 
-  FileConfiguration getConfig();
+  public FileConfiguration getConfig() {
+    return null;
+  }
 }

@@ -4,9 +4,13 @@ import net.brcdev.shopgui.exception.player.PlayerDataNotLoadedException;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
-public interface PlayerManager {
+public class PlayerManager {
 
-  boolean isPlayerLoaded(OfflinePlayer player);
+  public boolean isPlayerLoaded(OfflinePlayer player) {
+    return false;
+  }
 
-  PlayerData getPlayerData(Player player) throws PlayerDataNotLoadedException;
+  public PlayerData getPlayerData(Player player) throws PlayerDataNotLoadedException {
+    return null;
+  }
 }

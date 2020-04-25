@@ -8,25 +8,45 @@ import net.brcdev.shopgui.player.PlayerManager;
 import net.brcdev.shopgui.shop.ShopManager;
 import net.brcdev.shopgui.spawner.SpawnerManager;
 
-public interface ShopGuiPlugin {
+public class ShopGuiPlugin {
 
-  BConfig getConfigMain();
+  public BConfig getConfigMain() {
+    return null;
+  }
 
-  BConfig getConfigLang();
+  public BConfig getConfigLang() {
+    return null;
+  }
 
-  BConfig getConfigPriceModifiers();
+  public BConfig getConfigPriceModifiers() {
+    return null;
+  }
 
-  BConfig getConfigShops();
+  public BConfig getConfigShops() {
+    return null;
+  }
 
-  DataManager getDataManager();
+  public DataManager getDataManager() {
+    return null;
+  }
 
-  EconomyManager getEconomyManager();
+  public EconomyManager getEconomyManager() {
+    return null;
+  }
 
-  PlayerManager getPlayerManager();
+  public PlayerManager getPlayerManager() {
+    return null;
+  }
 
-  PriceModifierManager getPriceModifierManager();
+  public PriceModifierManager getPriceModifierManager() {
+    return null;
+  }
 
-  ShopManager getShopManager();
+  public ShopManager getShopManager() {
+    return null;
+  }
 
-  SpawnerManager getSpawnerManager();
+  public SpawnerManager getSpawnerManager() {
+    return null;
+  }
 }

@@ -1,4 +1,4 @@
 package net.brcdev.shopgui.modifier;
 
-public interface WrappedPriceModifiers {
+public class WrappedPriceModifiers {
 }

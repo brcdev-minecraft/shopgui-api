@@ -1,7 +1,12 @@
 package net.brcdev.shopgui.shop;
 
-public interface WrappedShopItem {
-  Shop getShop();
+public class WrappedShopItem {
 
-  ShopItem getShopItem();
+  public Shop getShop() {
+    return null;
+  }
+
+  public ShopItem getShopItem() {
+    return null;
+  }
 }

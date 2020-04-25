@@ -4,11 +4,16 @@ import net.brcdev.shopgui.spawner.external.provider.ExternalSpawnerProvider;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 
-public interface SpawnerManager {
+public class SpawnerManager {
 
-  ItemStack getSpawnerItem(EntityType entityType);
+  public ItemStack getSpawnerItem(EntityType entityType) {
+    return null;
+  }
 
-  EntityType getEntityType(ItemStack itemStack);
+  public EntityType getEntityType(ItemStack itemStack) {
+    return null;
+  }
 
-  void registerExternalSpawnerProvider(ExternalSpawnerProvider spawnerProvider);
+  public void registerExternalSpawnerProvider(ExternalSpawnerProvider spawnerProvider) {
+  }
 }

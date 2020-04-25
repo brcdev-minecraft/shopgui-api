@@ -5,21 +5,37 @@ import net.brcdev.shopgui.modifier.WrappedPriceModifiers;
 
 import java.util.UUID;
 
-public interface PlayerData {
+public class PlayerData {
 
-  UUID getId();
+  public UUID getId() {
+    return null;
+  }
 
-  String getName();
+  public String getName() {
+    return null;
+  }
 
-  WrappedPriceModifiers getPriceModifiers();
+  public WrappedPriceModifiers getPriceModifiers() {
+    return null;
+  }
 
-  long getLastGuiClick();
+  public long getLastGuiClick() {
+    return 0;
+  }
 
-  long getLastAmountSelectionGuiClick();
+  public long getLastAmountSelectionGuiClick() {
+    return 0;
+  }
 
-  OpenGui getOpenGui();
+  public OpenGui getOpenGui() {
+    return null;
+  }
 
-  boolean hasOpenGui();
+  public boolean hasOpenGui() {
+    return false;
+  }
 
-  boolean isSwitchingGui();
+  public boolean isSwitchingGui() {
+    return false;
+  }
 }
