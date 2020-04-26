@@ -28,7 +28,7 @@ When using this API, make sure you use valid version corresponding to ShopGUI+'s
 
 
 ## Dependencies
-_Note: It's not recommended to use the `latest` version tag. Use fixed version from [Releases](../releases) instead._ 
+_Note: It's not recommended to use the `latest` version tag. Use fixed version from [Releases](https://github.com/brcdev-minecraft/shopgui-api/releases) instead._ 
 ### Maven
 ```
 	<repositories>
