@@ -4,6 +4,35 @@ import org.bukkit.entity.Player;
 
 public abstract class EconomyProvider {
 
+  protected String currencyPrefix = "";
+  protected String currencySuffix = "";
+
+  /**
+   * Returns currency prefix used in all messages, lores etc.
+   *
+   * @return currency name
+   */
+  public String getCurrencyPrefix() {
+    return this.currencyPrefix;
+  }
+
+  public void setCurrencyPrefix(String currencyPrefix) {
+    this.currencyPrefix = currencyPrefix;
+  }
+
+  /**
+   * Returns currency suffix used in all messages, lores etc.
+   *
+   * @return currency name
+   */
+  public String getCurrencySuffix() {
+    return this.currencySuffix;
+  }
+
+  public void setCurrencySuffix(String currencySuffix) {
+    this.currencySuffix = currencySuffix;
+  }
+
   /**
    * Returns user-friendly name of economy
    *
