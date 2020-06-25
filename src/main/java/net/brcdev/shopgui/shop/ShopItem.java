@@ -8,11 +8,18 @@ import static net.brcdev.shopgui.shop.ShopManager.ItemType;
 
 public class ShopItem {
 
-  public ShopItem(String id, ItemType type) {
+  public ShopItem(Shop shop, String id, ItemType type) {
   }
 
-  public ShopItem(String id, ItemType type, ItemStack item, boolean unstack, int page, int slot, double buyPrice,
-                  double sellPrice, int originalStackSize) {
+  public ShopItem(Shop shop, String id, ItemType type, ItemStack item, boolean unstack, int page, int slot,
+                  double buyPrice, double sellPrice, int originalStackSize) {
+  }
+
+  public Shop getShop() {
+    return null;
+  }
+
+  public void setShop(Shop shop) {
   }
 
   public String getId() {
@@ -64,7 +71,7 @@ public class ShopItem {
   public void setBuyPrice(double buyPrice) {
   }
 
-  public double getBuyPrice(Shop shop, Player player, PlayerData playerData) {
+  public double getBuyPrice(Player player, PlayerData playerData) {
     return 0;
   }
 
@@ -75,11 +82,11 @@ public class ShopItem {
   public void setSellPrice(double sellPrice) {
   }
 
-  public double getSellPrice(Shop shop, Player player, PlayerData playerData) {
+  public double getSellPrice(Player player, PlayerData playerData) {
     return 0;
   }
 
-  public double getBuyPriceForAmount(Shop shop, Player player, PlayerData playerData, int amount) {
+  public double getBuyPriceForAmount(Player player, PlayerData playerData, int amount) {
     return 0;
   }
 
@@ -87,7 +94,7 @@ public class ShopItem {
     return 0;
   }
 
-  public double getSellPriceForAmount(Shop shop, Player player, PlayerData playerData, int amount) {
+  public double getSellPriceForAmount(Player player, PlayerData playerData, int amount) {
     return 0;
   }
 

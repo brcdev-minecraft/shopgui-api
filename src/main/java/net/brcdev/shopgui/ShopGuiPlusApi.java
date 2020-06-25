@@ -6,7 +6,6 @@ import net.brcdev.shopgui.player.PlayerData;
 import net.brcdev.shopgui.provider.economy.EconomyProvider;
 import net.brcdev.shopgui.shop.Shop;
 import net.brcdev.shopgui.shop.ShopItem;
-import net.brcdev.shopgui.shop.WrappedShopItem;
 import net.brcdev.shopgui.spawner.external.provider.ExternalSpawnerProvider;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -64,8 +63,8 @@ public class ShopGuiPlusApi {
    * @throws PlayerDataNotLoadedException when specified player's data isn't loaded yet
    */
   public static Shop getItemStackShop(Player player, ItemStack itemStack) throws PlayerDataNotLoadedException {
-    WrappedShopItem wrappedShopItem = getWrappedShopItem(player, itemStack);
-    return wrappedShopItem != null ? wrappedShopItem.getShop() : null;
+    ShopItem shopItem = getShopItem(player, itemStack);
+    return shopItem != null ? shopItem.getShop() : null;
   }
 
   /**
@@ -77,8 +76,8 @@ public class ShopGuiPlusApi {
    * @return shop if found, null otherwise
    */
   public static Shop getItemStackShop(ItemStack itemStack) {
-    WrappedShopItem wrappedShopItem = getWrappedShopItem(itemStack);
-    return wrappedShopItem != null ? wrappedShopItem.getShop() : null;
+    ShopItem shopItem = getShopItem(itemStack);
+    return shopItem != null ? shopItem.getShop() : null;
   }
 
   /**
@@ -91,8 +90,7 @@ public class ShopGuiPlusApi {
    * @throws PlayerDataNotLoadedException when specified player's data isn't loaded yet
    */
   public static ShopItem getItemStackShopItem(Player player, ItemStack itemStack) throws PlayerDataNotLoadedException {
-    WrappedShopItem wrappedShopItem = getWrappedShopItem(player, itemStack);
-    return wrappedShopItem != null ? wrappedShopItem.getShopItem() : null;
+    return getShopItem(player, itemStack);
   }
 
   /**
@@ -104,8 +102,7 @@ public class ShopGuiPlusApi {
    * @return shop item if found, null otherwise
    */
   public static ShopItem getItemStackShopItem(ItemStack itemStack) {
-    WrappedShopItem wrappedShopItem = getWrappedShopItem(itemStack);
-    return wrappedShopItem != null ? wrappedShopItem.getShopItem() : null;
+    return getShopItem(itemStack);
   }
 
   /**
@@ -118,15 +115,14 @@ public class ShopGuiPlusApi {
    * @throws PlayerDataNotLoadedException when specified player's data isn't loaded yet
    */
   public static double getItemStackPriceBuy(Player player, ItemStack itemStack) throws PlayerDataNotLoadedException {
-    WrappedShopItem wrappedShopItem = getWrappedShopItem(player, itemStack);
+    ShopItem shopItem = getShopItem(player, itemStack);
 
-    if (wrappedShopItem == null) {
+    if (shopItem == null) {
       return -1.0;
     }
 
     PlayerData playerData = shopGuiPlugin.getPlayerManager().getPlayerData(player);
-    return wrappedShopItem.getShopItem()
-      .getBuyPriceForAmount(wrappedShopItem.getShop(), player, playerData, itemStack.getAmount());
+    return shopItem.getBuyPriceForAmount(player, playerData, itemStack.getAmount());
   }
 
   /**
@@ -138,13 +134,13 @@ public class ShopGuiPlusApi {
    * @return buy price for the specified amount if found, -1.0 otherwise
    */
   public static double getItemStackPriceBuy(ItemStack itemStack) {
-    WrappedShopItem wrappedShopItem = getWrappedShopItem(itemStack);
+    ShopItem shopItem = getShopItem(itemStack);
 
-    if (wrappedShopItem == null) {
+    if (shopItem == null) {
       return -1.0;
     }
 
-    return wrappedShopItem.getShopItem().getBuyPriceForAmount(itemStack.getAmount());
+    return shopItem.getBuyPriceForAmount(itemStack.getAmount());
   }
 
   /**
@@ -157,15 +153,14 @@ public class ShopGuiPlusApi {
    * @throws PlayerDataNotLoadedException when specified player's data isn't loaded yet
    */
   public static double getItemStackPriceSell(Player player, ItemStack itemStack) throws PlayerDataNotLoadedException {
-    WrappedShopItem wrappedShopItem = getWrappedShopItem(player, itemStack);
+    ShopItem shopItem = getShopItem(player, itemStack);
 
-    if (wrappedShopItem == null) {
+    if (shopItem == null) {
       return -1.0;
     }
 
     PlayerData playerData = shopGuiPlugin.getPlayerManager().getPlayerData(player);
-    return wrappedShopItem.getShopItem()
-      .getSellPriceForAmount(wrappedShopItem.getShop(), player, playerData, itemStack.getAmount());
+    return shopItem.getSellPriceForAmount(player, playerData, itemStack.getAmount());
   }
 
   /**
@@ -177,13 +172,13 @@ public class ShopGuiPlusApi {
    * @return sell price for the specified amount if found, -1.0 otherwise
    */
   public static double getItemStackPriceSell(ItemStack itemStack) {
-    WrappedShopItem wrappedShopItem = getWrappedShopItem(itemStack);
+    ShopItem shopItem = getShopItem(itemStack);
 
-    if (wrappedShopItem == null) {
+    if (shopItem == null) {
       return -1.0;
     }
 
-    return wrappedShopItem.getShopItem().getSellPriceForAmount(itemStack.getAmount());
+    return shopItem.getSellPriceForAmount(itemStack.getAmount());
   }
 
   /**
@@ -218,8 +213,7 @@ public class ShopGuiPlusApi {
     shopGuiPlugin = instance;
   }
 
-  private static WrappedShopItem getWrappedShopItem(Player player, ItemStack itemStack)
-    throws PlayerDataNotLoadedException {
+  private static ShopItem getShopItem(Player player, ItemStack itemStack) throws PlayerDataNotLoadedException {
     if (!shopGuiPlugin.getPlayerManager().isPlayerLoaded(player)) {
       throw new PlayerDataNotLoadedException(player);
     }
@@ -228,7 +222,7 @@ public class ShopGuiPlusApi {
     return shopGuiPlugin.getShopManager().findShopItemByItemStack(player, playerData, itemStack, false);
   }
 
-  private static WrappedShopItem getWrappedShopItem(ItemStack itemStack) {
+  private static ShopItem getShopItem(ItemStack itemStack) {
     return shopGuiPlugin.getShopManager().findShopItemByItemStack(itemStack, false);
   }
 }

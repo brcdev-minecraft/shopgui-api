@@ -12,12 +12,12 @@ public class ShopManager {
   public void openShopMenu(Player player, String shopId, int page, boolean direct) {
   }
 
-  public WrappedShopItem findShopItemByItemStack(Player player, PlayerData playerData, ItemStack itemStack,
-                                                 boolean excludeFreeItems) {
+  public ShopItem findShopItemByItemStack(Player player, PlayerData playerData, ItemStack itemStack,
+                                          boolean excludeFreeItems) {
     return null;
   }
 
-  public WrappedShopItem findShopItemByItemStack(ItemStack itemStack, boolean excludeFreeItems) {
+  public ShopItem findShopItemByItemStack(ItemStack itemStack, boolean excludeFreeItems) {
     return null;
   }
 

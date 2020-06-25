@@ -131,12 +131,12 @@ public class Shop {
     return false;
   }
 
-  public WrappedShopItem findShopItem(Player player, PlayerData playerData, ItemStack itemStack,
+  public ShopItem findShopItem(Player player, PlayerData playerData, ItemStack itemStack,
                                       boolean excludeFreeItems) {
     return null;
   }
 
-  public WrappedShopItem findShopItem(ItemStack itemStack, boolean excludeFreeItems) {
+  public ShopItem findShopItem(ItemStack itemStack, boolean excludeFreeItems) {
     return null;
   }
 
