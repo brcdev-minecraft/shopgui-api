@@ -12,7 +12,7 @@ This repository provides an open source library containing basic API for [ShopGU
 3. You can start adding desired implementation to your plugin
 
 Tips:
-* Registering of spawner provider must be performed at server startup (inside the `onEnable` method of your plugin)
+* Registering of spawner or economy provider must be performed at server startup (inside the `onEnable` method of your plugin)
 * You can get ShopGUI+'s main class with `ShopGuiPlusApi#getPlugin` static method
 * The API is still very basic and incomplete - we're open for ideas as well as pull requests
 
@@ -63,8 +63,9 @@ _Note: It's not recommended to use the `latest` version tag. Use fixed version f
 ```
 
 ## Example implementations
-There is an official example of implementing a spawners provider available at our GitHub:
+There are some examples of implementing a spawners provider available at our GitHub:
 * [MySpawners - example of spawners plugin hooking into ShopGUI+](https://github.com/brcdev-minecraft/shopgui-api-example-spawner-provider)
+* [MyEconomy - example of economy plugin hooking into ShopGUI+](https://github.com/brcdev-minecraft/shopgui-api-example-economy-provider)
 
 More example plugins showing API possibilities are coming soon.
 
