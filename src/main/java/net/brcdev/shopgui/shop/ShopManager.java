@@ -6,6 +6,13 @@ import org.bukkit.inventory.ItemStack;
 
 public class ShopManager {
 
+  public boolean areShopsLoaded() {
+    return false;
+  }
+
+  public void load() {
+  }
+
   public void openMainMenu(final Player player) {
   }
 
