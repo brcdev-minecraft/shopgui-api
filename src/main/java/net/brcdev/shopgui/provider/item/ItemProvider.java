@@ -3,15 +3,17 @@ package net.brcdev.shopgui.provider.item;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Objects;
+
 public abstract class ItemProvider {
 
   boolean ready;
+  String name;
 
-  ItemProvider() {
+  ItemProvider(String name) {
     this.ready = true;
+    this.name = name;
   }
-
-  public abstract String getName();
 
   public abstract boolean isValidItem(ItemStack itemStack);
 
@@ -21,5 +23,22 @@ public abstract class ItemProvider {
 
   public boolean isReady() {
     return ready;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    ItemProvider that = (ItemProvider) o;
+    return ready == that.ready && Objects.equals(name, that.name);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(ready, name);
   }
 }
