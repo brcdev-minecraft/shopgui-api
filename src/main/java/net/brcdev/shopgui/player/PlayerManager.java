@@ -10,7 +10,7 @@ public class PlayerManager {
     return false;
   }
 
-  public PlayerData getPlayerData(Player player) throws PlayerDataNotLoadedException {
+  public PlayerData getPlayerData(OfflinePlayer player) throws PlayerDataNotLoadedException {
     return null;
   }
 }
