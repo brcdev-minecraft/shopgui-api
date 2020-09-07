@@ -1,7 +1,7 @@
 package net.brcdev.shopgui.player;
 
 import net.brcdev.shopgui.gui.gui.OpenGui;
-import net.brcdev.shopgui.modifier.WrappedPriceModifiers;
+import net.brcdev.shopgui.modifier.command.CommandPriceModifiers;
 
 import java.util.UUID;
 
@@ -15,7 +15,7 @@ public class PlayerData {
     return null;
   }
 
-  public WrappedPriceModifiers getPriceModifiers() {
+  public CommandPriceModifiers getPriceModifiers() {
     return null;
   }
 

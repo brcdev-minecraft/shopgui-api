@@ -2,6 +2,8 @@ package net.brcdev.shopgui;
 
 import net.brcdev.shopgui.exception.api.ExternalSpawnerProviderNameConflictException;
 import net.brcdev.shopgui.exception.player.PlayerDataNotLoadedException;
+import net.brcdev.shopgui.modifier.PriceModifier;
+import net.brcdev.shopgui.modifier.PriceModifierActionType;
 import net.brcdev.shopgui.player.PlayerData;
 import net.brcdev.shopgui.provider.economy.EconomyProvider;
 import net.brcdev.shopgui.shop.Shop;
@@ -60,9 +62,8 @@ public class ShopGuiPlusApi {
    *                  access to)
    * @param itemStack Item stack to search for
    * @return shop if found, null otherwise
-   * @throws PlayerDataNotLoadedException when specified player's data isn't loaded yet
    */
-  public static Shop getItemStackShop(Player player, ItemStack itemStack) throws PlayerDataNotLoadedException {
+  public static Shop getItemStackShop(Player player, ItemStack itemStack) {
     ShopItem shopItem = getShopItem(player, itemStack);
     return shopItem != null ? shopItem.getShop() : null;
   }
@@ -87,9 +88,8 @@ public class ShopGuiPlusApi {
    *                  player doesn't have access to)
    * @param itemStack Item stack to search for
    * @return shop item if found, null otherwise
-   * @throws PlayerDataNotLoadedException when specified player's data isn't loaded yet
    */
-  public static ShopItem getItemStackShopItem(Player player, ItemStack itemStack) throws PlayerDataNotLoadedException {
+  public static ShopItem getItemStackShopItem(Player player, ItemStack itemStack) {
     return getShopItem(player, itemStack);
   }
 
@@ -112,17 +112,15 @@ public class ShopGuiPlusApi {
    *                  player doesn't have access to)
    * @param itemStack Item stack to check
    * @return buy price for the specified amount if found, -1.0 otherwise
-   * @throws PlayerDataNotLoadedException when specified player's data isn't loaded yet
    */
-  public static double getItemStackPriceBuy(Player player, ItemStack itemStack) throws PlayerDataNotLoadedException {
+  public static double getItemStackPriceBuy(Player player, ItemStack itemStack) {
     ShopItem shopItem = getShopItem(player, itemStack);
 
     if (shopItem == null) {
       return -1.0;
     }
 
-    PlayerData playerData = shopGuiPlugin.getPlayerManager().getPlayerData(player);
-    return shopItem.getBuyPriceForAmount(player, playerData, itemStack.getAmount());
+    return shopItem.getBuyPriceForAmount(player, itemStack.getAmount());
   }
 
   /**
@@ -150,17 +148,15 @@ public class ShopGuiPlusApi {
    *                  player doesn't have access to)
    * @param itemStack Item stack to check
    * @return sell price for the specified amount if found, -1.0 otherwise
-   * @throws PlayerDataNotLoadedException when specified player's data isn't loaded yet
    */
-  public static double getItemStackPriceSell(Player player, ItemStack itemStack) throws PlayerDataNotLoadedException {
+  public static double getItemStackPriceSell(Player player, ItemStack itemStack) {
     ShopItem shopItem = getShopItem(player, itemStack);
 
     if (shopItem == null) {
       return -1.0;
     }
 
-    PlayerData playerData = shopGuiPlugin.getPlayerManager().getPlayerData(player);
-    return shopItem.getSellPriceForAmount(player, playerData, itemStack.getAmount());
+    return shopItem.getSellPriceForAmount(player, itemStack.getAmount());
   }
 
   /**
@@ -179,6 +175,88 @@ public class ShopGuiPlusApi {
     }
 
     return shopItem.getSellPriceForAmount(itemStack.getAmount());
+  }
+
+  /**
+   * Gets player's price modifier for a shop item (including shop item, shop and global price modifiers)
+   *
+   * @param player   Player to check
+   * @param shopItem Shop item player has the modifier for
+   * @param type     Type (buy/sell/both) of price modifier to check
+   * @return price modifier player has
+   * @throws PlayerDataNotLoadedException when specified player's data isn't loaded yet
+   */
+  public static PriceModifier getPriceModifier(Player player, ShopItem shopItem, PriceModifierActionType type)
+    throws PlayerDataNotLoadedException {
+    return shopGuiPlugin.getPriceModifierManager().getPriceModifier(player, shopItem, type);
+  }
+
+  /**
+   * Sets player's price modifier for a shop item
+   *
+   * @param player   Player to set the price modifier for
+   * @param shopItem Shop item player has the modifier for
+   * @param type     Type (buy/sell/both) of price modifier to set
+   * @param modifier Price modifier value (1.0 is 100% of the original price)
+   * @throws PlayerDataNotLoadedException when specified player's data isn't loaded yet
+   */
+  public static void setPriceModifier(Player player, ShopItem shopItem, PriceModifierActionType type, double modifier)
+    throws PlayerDataNotLoadedException {
+    shopGuiPlugin.getPriceModifierManager().setPriceModifier(player, shopItem, type, modifier);
+  }
+
+  /**
+   * Gets price modifier player has for a shop (including shop and global price modifiers)
+   *
+   * @param player Player to check
+   * @param shop   Shop player has the modifier for
+   * @param type   Type (buy/sell/both) of price modifier to check
+   * @return price modifier player has
+   * @throws PlayerDataNotLoadedException when specified player's data isn't loaded yet
+   */
+  public static PriceModifier getPriceModifier(Player player, Shop shop, PriceModifierActionType type)
+    throws PlayerDataNotLoadedException {
+    return shopGuiPlugin.getPriceModifierManager().getPriceModifier(player, shop, type);
+  }
+
+  /**
+   * Sets player's price modifier for a shop
+   *
+   * @param player   Player to check
+   * @param shop     Shop player has the modifier for
+   * @param type     Type (buy/sell/both) of price modifier to set
+   * @param modifier Price modifier value (1.0 is 100% of the original price)
+   * @throws PlayerDataNotLoadedException when specified player's data isn't loaded yet
+   */
+  public static void setPriceModifier(Player player, Shop shop, PriceModifierActionType type, double modifier)
+    throws PlayerDataNotLoadedException {
+    shopGuiPlugin.getPriceModifierManager().setPriceModifier(player, shop, type, modifier);
+  }
+
+  /**
+   * Gets player's global price modifier (including only global price modifiers)
+   *
+   * @param player Player to check
+   * @param type   Type (buy/sell/both) of price modifier to check
+   * @return price modifier player has
+   * @throws PlayerDataNotLoadedException when specified player's data isn't loaded yet
+   */
+  public static PriceModifier getPriceModifier(Player player, PriceModifierActionType type)
+    throws PlayerDataNotLoadedException {
+    return shopGuiPlugin.getPriceModifierManager().getPriceModifier(player, type);
+  }
+
+  /**
+   * Sets player's global price modifier
+   *
+   * @param player   Player to check
+   * @param type     Type (buy/sell/both) of price modifier to set
+   * @param modifier Price modifier value (1.0 is 100% of the original price)
+   * @throws PlayerDataNotLoadedException when specified player's data isn't loaded yet
+   */
+  public static void setPriceModifier(Player player, PriceModifierActionType type, double modifier)
+    throws PlayerDataNotLoadedException {
+    shopGuiPlugin.getPriceModifierManager().setPriceModifier(player, type, modifier);
   }
 
   /**
@@ -213,13 +291,8 @@ public class ShopGuiPlusApi {
     shopGuiPlugin = instance;
   }
 
-  private static ShopItem getShopItem(Player player, ItemStack itemStack) throws PlayerDataNotLoadedException {
-    if (!shopGuiPlugin.getPlayerManager().isPlayerLoaded(player)) {
-      throw new PlayerDataNotLoadedException(player);
-    }
-
-    PlayerData playerData = shopGuiPlugin.getPlayerManager().getPlayerData(player);
-    return shopGuiPlugin.getShopManager().findShopItemByItemStack(player, playerData, itemStack, false);
+  private static ShopItem getShopItem(Player player, ItemStack itemStack) {
+    return shopGuiPlugin.getShopManager().findShopItemByItemStack(player, itemStack, false);
   }
 
   private static ShopItem getShopItem(ItemStack itemStack) {

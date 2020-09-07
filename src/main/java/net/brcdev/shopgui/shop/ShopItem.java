@@ -71,7 +71,12 @@ public class ShopItem {
   public void setBuyPrice(double buyPrice) {
   }
 
+  @Deprecated
   public double getBuyPrice(Player player, PlayerData playerData) {
+    return 0;
+  }
+
+  public double getBuyPrice(Player player) {
     return 0;
   }
 
@@ -82,11 +87,21 @@ public class ShopItem {
   public void setSellPrice(double sellPrice) {
   }
 
+  @Deprecated
   public double getSellPrice(Player player, PlayerData playerData) {
     return 0;
   }
 
+  public double getSellPrice(Player player) {
+    return 0;
+  }
+
+  @Deprecated
   public double getBuyPriceForAmount(Player player, PlayerData playerData, int amount) {
+    return 0;
+  }
+
+  public double getBuyPriceForAmount(Player player, int amount) {
     return 0;
   }
 
@@ -94,7 +109,12 @@ public class ShopItem {
     return 0;
   }
 
+  @Deprecated
   public double getSellPriceForAmount(Player player, PlayerData playerData, int amount) {
+    return 0;
+  }
+
+  public double getSellPriceForAmount(Player player, int amount) {
     return 0;
   }
 

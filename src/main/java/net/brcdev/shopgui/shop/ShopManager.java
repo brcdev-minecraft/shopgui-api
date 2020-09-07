@@ -19,7 +19,7 @@ public class ShopManager {
   public void openShopMenu(Player player, String shopId, int page, boolean direct) {
   }
 
-  public ShopItem findShopItemByItemStack(Player player, PlayerData playerData, ItemStack itemStack,
+  public ShopItem findShopItemByItemStack(Player player, ItemStack itemStack,
                                           boolean excludeFreeItems) {
     return null;
   }
