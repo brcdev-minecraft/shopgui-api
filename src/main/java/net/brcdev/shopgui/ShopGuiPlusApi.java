@@ -4,7 +4,6 @@ import net.brcdev.shopgui.exception.api.ExternalSpawnerProviderNameConflictExcep
 import net.brcdev.shopgui.exception.player.PlayerDataNotLoadedException;
 import net.brcdev.shopgui.modifier.PriceModifier;
 import net.brcdev.shopgui.modifier.PriceModifierActionType;
-import net.brcdev.shopgui.player.PlayerData;
 import net.brcdev.shopgui.provider.economy.EconomyProvider;
 import net.brcdev.shopgui.shop.Shop;
 import net.brcdev.shopgui.shop.ShopItem;
@@ -206,6 +205,19 @@ public class ShopGuiPlusApi {
   }
 
   /**
+   * Resets player's price modifier for a shop item
+   *
+   * @param player   Player to reset the price modifier for
+   * @param shopItem Shop item player has the modifier for
+   * @param type     Type (buy/sell/both) of price modifier to reset
+   * @throws PlayerDataNotLoadedException when specified player's data isn't loaded yet
+   */
+  public static void resetPriceModifier(Player player, ShopItem shopItem, PriceModifierActionType type)
+    throws PlayerDataNotLoadedException {
+    shopGuiPlugin.getPriceModifierManager().resetPriceModifier(player, shopItem, type);
+  }
+
+  /**
    * Gets price modifier player has for a shop (including shop and global price modifiers)
    *
    * @param player Player to check
@@ -234,6 +246,19 @@ public class ShopGuiPlusApi {
   }
 
   /**
+   * Resets player's price modifier for a shop
+   *
+   * @param player Player to check
+   * @param shop   Shop player has the modifier for
+   * @param type   Type (buy/sell/both) of price modifier to reset
+   * @throws PlayerDataNotLoadedException when specified player's data isn't loaded yet
+   */
+  public static void resetPriceModifier(Player player, Shop shop, PriceModifierActionType type)
+    throws PlayerDataNotLoadedException {
+    shopGuiPlugin.getPriceModifierManager().resetPriceModifier(player, shop, type);
+  }
+
+  /**
    * Gets player's global price modifier (including only global price modifiers)
    *
    * @param player Player to check
@@ -257,6 +282,18 @@ public class ShopGuiPlusApi {
   public static void setPriceModifier(Player player, PriceModifierActionType type, double modifier)
     throws PlayerDataNotLoadedException {
     shopGuiPlugin.getPriceModifierManager().setPriceModifier(player, type, modifier);
+  }
+
+  /**
+   * Resets player's global price modifier
+   *
+   * @param player Player to check
+   * @param type   Type (buy/sell/both) of price modifier to reset
+   * @throws PlayerDataNotLoadedException when specified player's data isn't loaded yet
+   */
+  public static void resetPriceModifier(Player player, PriceModifierActionType type)
+    throws PlayerDataNotLoadedException {
+    shopGuiPlugin.getPriceModifierManager().resetPriceModifier(player, type);
   }
 
   /**
