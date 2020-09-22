@@ -3,6 +3,7 @@ package net.brcdev.shopgui;
 import net.brcdev.shopgui.core.BConfig;
 import net.brcdev.shopgui.database.DataManager;
 import net.brcdev.shopgui.economy.EconomyManager;
+import net.brcdev.shopgui.item.ItemManager;
 import net.brcdev.shopgui.modifier.PriceModifierManager;
 import net.brcdev.shopgui.player.PlayerManager;
 import net.brcdev.shopgui.shop.ShopManager;
@@ -31,6 +32,10 @@ public class ShopGuiPlugin {
   }
 
   public EconomyManager getEconomyManager() {
+    return null;
+  }
+
+  public ItemManager getItemManager() {
     return null;
   }
 
