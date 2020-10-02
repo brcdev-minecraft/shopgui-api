@@ -7,10 +7,10 @@ import java.util.Objects;
 
 public abstract class ItemProvider {
 
-  boolean ready;
-  String name;
+  private boolean ready;
+  private String name;
 
-  ItemProvider(String name) {
+  public ItemProvider(String name) {
     this.ready = true;
     this.name = name;
   }
