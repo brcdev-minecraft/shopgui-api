@@ -5,6 +5,7 @@ import net.brcdev.shopgui.exception.player.PlayerDataNotLoadedException;
 import net.brcdev.shopgui.modifier.PriceModifier;
 import net.brcdev.shopgui.modifier.PriceModifierActionType;
 import net.brcdev.shopgui.provider.economy.EconomyProvider;
+import net.brcdev.shopgui.provider.item.ItemProvider;
 import net.brcdev.shopgui.shop.Shop;
 import net.brcdev.shopgui.shop.ShopItem;
 import net.brcdev.shopgui.spawner.external.provider.ExternalSpawnerProvider;
@@ -313,6 +314,15 @@ public class ShopGuiPlusApi {
    */
   public static void registerEconomyProvider(EconomyProvider economyProvider) {
     shopGuiPlugin.getEconomyManager().registerCustomEconomyProvider(economyProvider);
+  }
+
+  /**
+   * Registers a custom item provider
+   *
+   * @param itemProvider Implementation of custom item provider
+   */
+  public static void registerItemProvider(ItemProvider itemProvider) {
+    shopGuiPlugin.getItemManager().registerItemProvider(itemProvider);
   }
 
   /**
