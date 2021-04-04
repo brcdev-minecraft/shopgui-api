@@ -73,6 +73,7 @@ _Note: It's not recommended to use the `latest` version tag. Use fixed version f
 There are some examples of implementing a spawners provider available at our GitHub:
 * [MySpawners - example of spawners plugin hooking into ShopGUI+](https://github.com/brcdev-minecraft/shopgui-api-example-spawner-provider)
 * [MyEconomy - example of economy plugin hooking into ShopGUI+](https://github.com/brcdev-minecraft/shopgui-api-example-economy-provider)
+* [MyItems - example of items plugin hooking into ShopGUI+](https://github.com/brcdev-minecraft/shopgui-api-example-item-provider)
 
 More example plugins showing API possibilities are coming soon.
 
