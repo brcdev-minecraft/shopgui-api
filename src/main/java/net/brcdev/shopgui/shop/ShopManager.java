@@ -1,10 +1,16 @@
 package net.brcdev.shopgui.shop;
 
-import net.brcdev.shopgui.player.PlayerData;
+import net.brcdev.shopgui.exception.shop.ShopsNotLoadedException;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Set;
+
 public class ShopManager {
+
+  public Set<Shop> getShops() throws ShopsNotLoadedException {
+    return null;
+  }
 
   public boolean areShopsLoaded() {
     return false;
@@ -19,8 +25,7 @@ public class ShopManager {
   public void openShopMenu(Player player, String shopId, int page, boolean direct) {
   }
 
-  public ShopItem findShopItemByItemStack(Player player, ItemStack itemStack,
-                                          boolean excludeFreeItems) {
+  public ShopItem findShopItemByItemStack(Player player, ItemStack itemStack, boolean excludeFreeItems) {
     return null;
   }
 
