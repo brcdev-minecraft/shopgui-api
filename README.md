@@ -21,7 +21,8 @@ When using this API, make sure you use valid version corresponding to ShopGUI+'s
 
 | ShopGUI+ version  | API version |
 | --- | --- |
-| 1.58.0 - ... | 2.2.0
+| 1.72.0 - ... | 2.3.0
+| 1.58.0 - 1.71.0 | 2.2.0
 | 1.45.1 - 1.57.0 | 2.1.1
 | 1.45.0 | 2.1.0
 | 1.43.0 - 1.44.3 | 2.0.0
