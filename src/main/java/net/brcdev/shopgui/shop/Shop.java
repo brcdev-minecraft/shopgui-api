@@ -4,6 +4,7 @@ import net.brcdev.shopgui.economy.EconomyType;
 import net.brcdev.shopgui.gui.element.button.GuiButton;
 import net.brcdev.shopgui.player.PlayerData;
 import net.brcdev.shopgui.provider.economy.EconomyProvider;
+import net.brcdev.shopgui.shop.item.ShopItem;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 

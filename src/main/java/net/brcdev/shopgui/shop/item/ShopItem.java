@@ -1,17 +1,16 @@
-package net.brcdev.shopgui.shop;
+package net.brcdev.shopgui.shop.item;
 
 import net.brcdev.shopgui.player.PlayerData;
+import net.brcdev.shopgui.shop.Shop;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import static net.brcdev.shopgui.shop.ShopManager.ItemType;
-
 public class ShopItem {
 
-  public ShopItem(Shop shop, String id, ItemType type) {
+  public ShopItem(Shop shop, String id, ShopItemType type) {
   }
 
-  public ShopItem(Shop shop, String id, ItemType type, ItemStack item, boolean unstack, int page, int slot,
+  public ShopItem(Shop shop, String id, ShopItemType type, ItemStack item, boolean unstack, int page, int slot,
                   double buyPrice, double sellPrice, int originalStackSize) {
   }
 
@@ -43,11 +42,11 @@ public class ShopItem {
   public void setPlaceholder(ItemStack placeholder) {
   }
 
-  public ItemType getType() {
+  public ShopItemType getType() {
     return null;
   }
 
-  public void setType(ItemType type) {
+  public void setType(ShopItemType type) {
   }
 
   public int getPage() {

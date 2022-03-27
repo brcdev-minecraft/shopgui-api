@@ -7,7 +7,7 @@ import net.brcdev.shopgui.modifier.PriceModifierActionType;
 import net.brcdev.shopgui.provider.economy.EconomyProvider;
 import net.brcdev.shopgui.provider.item.ItemProvider;
 import net.brcdev.shopgui.shop.Shop;
-import net.brcdev.shopgui.shop.ShopItem;
+import net.brcdev.shopgui.shop.item.ShopItem;
 import net.brcdev.shopgui.spawner.external.provider.ExternalSpawnerProvider;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
