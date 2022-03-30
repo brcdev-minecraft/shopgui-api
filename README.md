@@ -52,6 +52,7 @@ _Note: It's not recommended to use the `latest` version tag. Use fixed version f
 	    <groupId>com.github.brcdev-minecraft</groupId>
 	    <artifactId>shopgui-api</artifactId>
 	    <version>latest</version>
+	    <scope>provided</scope>
 	</dependency>
 ```
 
@@ -66,7 +67,7 @@ _Note: It's not recommended to use the `latest` version tag. Use fixed version f
 ```
 ```
 	dependencies {
-	        implementation 'com.github.brcdev-minecraft:shopgui-api:latest'
+	        compileOnly 'com.github.brcdev-minecraft:shopgui-api:latest'
 	}
 ```
 
