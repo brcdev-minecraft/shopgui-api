@@ -84,6 +84,7 @@ from [Releases](https://github.com/brcdev-minecraft/shopgui-api/releases) instea
 	    <groupId>com.github.brcdev-minecraft</groupId>
 	    <artifactId>shopgui-api</artifactId>
 	    <version>latest</version>
+	    <scope>provided</scope>
 	</dependency>
 ```
 
@@ -100,7 +101,7 @@ from [Releases](https://github.com/brcdev-minecraft/shopgui-api/releases) instea
 
 ```
 	dependencies {
-	        implementation 'com.github.brcdev-minecraft:shopgui-api:latest'
+	        compileOnly 'com.github.brcdev-minecraft:shopgui-api:latest'
 	}
 ```
 
