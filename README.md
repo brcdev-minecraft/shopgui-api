@@ -1,7 +1,6 @@
 # shopgui-api
 
 ![GitHub release](https://img.shields.io/github/release/brcdev-minecraft/shopgui-api)
-![Travis (.org)](https://img.shields.io/travis/brcdev-minecraft/shopgui-api)
 ![GitHub](https://img.shields.io/github/license/brcdev-minecraft/shopgui-api)
 ![GitHub last commit](https://img.shields.io/github/last-commit/brcdev-minecraft/shopgui-api)
 
