@@ -18,9 +18,10 @@ See [example implementations](#example-implementations) below for more exact exa
 Instead, listen for `ShopGUIPlusPostEnableEvent` event in your plugin and perform the startup logic there:
 
 ```java
-  @EventHandler public void onShopGUIPlusPostEnable(ShopGUIPlusPostEnableEvent event){
-  ShopGuiPlusApi.registerItemProvider(...);
-  }
+@EventHandler
+public void onShopGUIPlusPostEnable(ShopGUIPlusPostEnableEvent event){
+    ShopGuiPlusApi.registerItemProvider(...);
+}
 ```
 
 This guarantees your code gets executed when ShopGUI+ had started up, but not loaded its shops yet, so you can register
