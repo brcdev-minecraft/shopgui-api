@@ -1,6 +1,6 @@
 package net.brcdev.shopgui.event;
 
-import net.brcdev.shopgui.shop.ShopItem;
+import net.brcdev.shopgui.shop.item.ShopItem;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;

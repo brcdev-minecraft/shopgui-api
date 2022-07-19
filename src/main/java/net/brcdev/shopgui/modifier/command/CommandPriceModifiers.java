@@ -3,7 +3,7 @@ package net.brcdev.shopgui.modifier.command;
 import net.brcdev.shopgui.modifier.PriceModifierActionType;
 import net.brcdev.shopgui.modifier.PriceModifierEntry;
 import net.brcdev.shopgui.shop.Shop;
-import net.brcdev.shopgui.shop.ShopItem;
+import net.brcdev.shopgui.shop.item.ShopItem;
 
 import java.util.Map;
 

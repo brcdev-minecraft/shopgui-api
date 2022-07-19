@@ -2,7 +2,7 @@ package net.brcdev.shopgui.modifier;
 
 import net.brcdev.shopgui.exception.player.PlayerDataNotLoadedException;
 import net.brcdev.shopgui.shop.Shop;
-import net.brcdev.shopgui.shop.ShopItem;
+import net.brcdev.shopgui.shop.item.ShopItem;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 

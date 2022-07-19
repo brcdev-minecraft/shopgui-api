@@ -1,6 +1,7 @@
 package net.brcdev.shopgui.shop;
 
 import net.brcdev.shopgui.exception.shop.ShopsNotLoadedException;
+import net.brcdev.shopgui.shop.item.ShopItem;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -35,15 +36,6 @@ public class ShopManager {
 
   public Shop getShopById(String shopId) {
     return null;
-  }
-
-  public enum ItemType {
-    ITEM,
-    PERMISSION,
-    ENCHANTMENT,
-    COMMAND,
-    SPECIAL,
-    DUMMY
   }
 
   public enum ShopAction {

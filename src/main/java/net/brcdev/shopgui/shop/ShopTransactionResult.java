@@ -1,5 +1,6 @@
 package net.brcdev.shopgui.shop;
 
+import net.brcdev.shopgui.shop.item.ShopItem;
 import org.bukkit.entity.Player;
 
 import static net.brcdev.shopgui.shop.ShopManager.ShopAction;
