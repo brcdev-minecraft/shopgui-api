@@ -27,6 +27,13 @@ public void onShopGUIPlusPostEnable(ShopGUIPlusPostEnableEvent event){
 This guarantees your code gets executed when ShopGUI+ had started up, but not loaded its shops yet, so you can register
 your items, spawners, economies etc. safely.
 
+When hooking into ShopGUI+, you can ensure it has loaded its items using following method:
+```java
+if (ShopGuiPlugin.getInstance().getShopManager().areShopsLoaded()) {
+  // Shops are loaded at this point
+}
+```
+
 ## How to use
 
 1. Add Maven/Gradle dependency to your project (code snippets are available in the section below)
