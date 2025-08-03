@@ -7,9 +7,14 @@ import net.brcdev.shopgui.item.ItemManager;
 import net.brcdev.shopgui.modifier.PriceModifierManager;
 import net.brcdev.shopgui.player.PlayerManager;
 import net.brcdev.shopgui.shop.ShopManager;
+import net.brcdev.shopgui.sound.SoundManager;
 import net.brcdev.shopgui.spawner.SpawnerManager;
 
 public class ShopGuiPlugin {
+
+  public static ShopGuiPlugin getInstance() {
+    return null;
+  }
 
   public BConfig getConfigMain() {
     return null;
@@ -52,6 +57,10 @@ public class ShopGuiPlugin {
   }
 
   public SpawnerManager getSpawnerManager() {
+    return null;
+  }
+
+  public SoundManager getSoundManager() {
     return null;
   }
 }
